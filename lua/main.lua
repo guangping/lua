@@ -95,6 +95,8 @@ until(a>15);
 ]]
 
 
+a="ff";
+print(string.upper(a));
 
 
 
