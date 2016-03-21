@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8"/>
+    <title>ngx_lua 模块 - wangxusummer - 博客园</title>
+    <link type="text/css" rel="stylesheet"
+          href="/bundles/blog-common.css?v=iaIBFyx6Vr94NzNO_3ZPrlgjC7pN1OGR4X2wPvP0lwg1"/>
+    <link id="MainCss" type="text/css" rel="stylesheet"
+          href="/skins/BlackLowKey/bundle-BlackLowKey.css?v=B7-m2NxlKbJ6xN_kGRXgbaLp9_4SHPK1jC_DQ8UbhqA1"/>
+    <link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/wangxusummer/rss"/>
+    <link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/wangxusummer/rsd.xml"/>
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest"
+          href="http://www.cnblogs.com/wangxusummer/wlwmanifest.xml"/>
+    <script src="http://common.cnblogs.com/script/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript">var currentBlogApp = 'wangxusummer', cb_enable_mathjax = false;</script>
+    <script src="/bundles/blog-common.js?v=ykDTFH9FE4CgKmGT6HilV870QfVPxO515wqgmKkq4MU1"
+            type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<!--done-->
+<div id="home">
+    <div id="header">
+        <div id="blogTitle">
+            <a id="lnkBlogLogo" href="http://www.cnblogs.com/wangxusummer/"><img id="blogLogo"
+                                                                                 src="/Skins/custom/images/logo.gif"
+                                                                                 alt="返回主页"/></a>
+
+            <!--done-->
+            <h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/wangxusummer/">wangxusummer</a>
+            </h1>
+            <h2></h2>
+
+
+        </div><!--end: blogTitle 博客的标题和副标题 -->
+        <div id="navigator">
+
+            <ul id="navList">
+                <li><a id="MyLinks1_HomeLink" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+                <li><a id="MyLinks1_MyHomeLink" class="menu" href="http://www.cnblogs.com/wangxusummer/">首页</a></li>
+                <li><a id="MyLinks1_NewPostLink" class="menu" rel="nofollow"
+                       href="http://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+                <li><a id="MyLinks1_ContactLink" class="menu" rel="nofollow"
+                       href="http://msg.cnblogs.com/send/wangxusummer">联系</a></li>
+                <li><a id="MyLinks1_Syndication" class="menu" href="http://www.cnblogs.com/wangxusummer/rss">订阅</a>
+                    <!--<a id="MyLinks1_XMLLink" class="aHeaderXML" href="http://www.cnblogs.com/wangxusummer/rss"><img src="http://www.cnblogs.com/images/xml.gif" alt="订阅" /></a>-->
+                </li>
+                <li><a id="MyLinks1_Admin" class="menu" rel="nofollow" href="http://i.cnblogs.com/">管理</a></li>
+            </ul>
+            <div class="blogStats">
+
+
+                <!--done-->
+                随笔- 114&nbsp;
+                文章- 0&nbsp;
+                评论- 0&nbsp;
+
+
+            </div><!--end: blogStats -->
+        </div><!--end: navigator 博客导航栏 -->
+    </div><!--end: header 头部 -->
+
+    <div id="main">
+        <div id="mainContent">
+            <div class="forFlow">
+
+                <div id="post_detail">
+                    <!--done-->
+                    <div id="topics">
+                        <div class="post">
+                            <h1 class="postTitle">
+                                <a id="cb_post_title_url" class="postTitle2"
+                                   href="http://www.cnblogs.com/wangxusummer/p/4309007.html">ngx_lua 模块</a>
+                            </h1>
+                            <div class="clear"></div>
+                            <div class="postBody">
+                                <div id="cnblogs_post_body">
+                                    <div id="cnblogs_post_body">
+                                        <p>ngx_lua模块的原理：</p>
+                                        <p>1、每个worker（工作进程）创建一个Lua VM，worker内所有协程共享VM；<br/>2、将Nginx I/O原语封装后注入 Lua
+                                            VM，允许Lua代码直接访问；<br/>3、每个外部请求都由一个Lua协程处理，协程之间数据隔离；<br/>4、Lua代码调用I/O操作等异步接口时，会挂起当前协程（并保护上下文数据），而不阻塞worker；<br/>5、I/O等异步操作完成时还原相关协程上下文数据，并继续运行；
+                                        </p>
+                                        <p>&nbsp;</p>
+                                        <p><strong>ngx_lua 模块提供的指令和API等：</strong></p>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <colgroup>
+                                                <col width="404"/>
+                                                <col width="615"/>
+                                            </colgroup>
+                                            <tbody>
+                                            <tr>
+                                                <td class="xl63" width="404" height="18">指令名称</td>
+                                                <td class="xl63" width="615">说明</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td height="18">lua_use_default_type</td>
+                                                <td>是否使用default_type指令定义的Content-Type默认值</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td height="18">lua_code_cache</td>
+                                                <td>*_by_lua_file文件是否cache</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td height="18">lua_regex_cache_max_entries</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td height="18">lua_regex_match_limit</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td height="18">lua_package_path</td>
+                                                <td>用Lua写的lua外部库路径（.lua文件）</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td height="18">lua_package_cpath</td>
+                                                <td>用C写的lua外部库路径（.so文件）</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">init_by_lua</td>
+                                                <td>master进程启动时挂载的lua代码</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl68" height="18">init_by_lua_file</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">init_worker_by_lua</td>
+                                                <td>worker进程启动时挂载的lua代码，常用来执行一些定时器任务</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl68" height="18">init_worker_by_lua_file</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">set_by_lua</td>
+                                                <td>设置变量</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl68" height="18">set_by_lua_file</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">content_by_lua</td>
+                                                <td>handler模块</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl68" height="18">content_by_lua_file</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">rewrite_by_lua</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl68" height="18">rewrite_by_lua_file</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">access_by_lua</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl68" height="18">access_by_lua_file</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">header_filter_by_lua</td>
+                                                <td>header filter模块</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl68" height="18">header_filter_by_lua_file</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">body_filter_by_lua</td>
+                                                <td>body filter模块，ngx.arg[1]代表输入的chunk，ngx.arg[2]代表当前chunk是否为last</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl68" height="18">body_filter_by_lua_file</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">log_by_lua</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl68" height="18">log_by_lua_file</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td height="18">lua_need_request_body</td>
+                                                <td>是否读请求体，跟ngx.req.read_body()函数作用类似</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl64" height="18">lua_shared_dict</td>
+                                                <td>创建全局共享的table（多个worker进程共享）</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl66" height="18">lua_socket_connect_timeout</td>
+                                                <td>TCP/unix 域socket对象connect方法的超时时间</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl66" height="18">lua_socket_send_timeout</td>
+                                                <td>TCP/unix 域socket对象send方法的超时时间</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl66" height="18">lua_socket_send_lowat</td>
+                                                <td>设置cosocket send buffer的low water值</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl66" height="18">lua_socket_read_timeout</td>
+                                                <td>TCP/unix 域socket对象receive方法的超时时间</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl66" height="18">lua_socket_buffer_size</td>
+                                                <td>cosocket读buffer大小</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl66" height="18">lua_socket_pool_size</td>
+                                                <td>cosocket连接池大小</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl66" height="18">lua_socket_keepalive_timeout</td>
+                                                <td>cosocket长连接超时时间</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl66" height="18">lua_socket_log_errors</td>
+                                                <td>是否打开cosocket错误日志</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl65" height="18">lua_ssl_ciphers</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl65" height="18">lua_ssl_crl</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl65" height="18">lua_ssl_protocols</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl65" height="18">lua_ssl_trusted_certificate</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl65" height="18">lua_ssl_verify_depth</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td height="18">lua_http10_buffering</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td height="18">rewrite_by_lua_no_postpone</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td height="18">lua_transform_underscores_in_response_headers</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td height="18">lua_check_client_abort</td>
+                                                <td>是否监视client提前关闭请求的事件，如果打开监视，会调用ngx.on_abort()注册的回调</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td height="18">lua_max_pending_timers</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td height="18">lua_max_running_timers</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+
+                                            </tbody>
+
+                                        </table>
+                                        <p>&nbsp;</p>
+                                        <p>&nbsp;</p>
+                                        <p>&nbsp;</p>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <colgroup>
+                                                <col width="262"/>
+                                                <col width="389"/>
+                                            </colgroup>
+                                            <tbody>
+                                            <tr>
+                                                <td class="xl72" width="262" height="18">table</td>
+                                                <td class="xl72" width="389">说明</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl74" height="18">ngx.arg</td>
+                                                <td>指令参数，如跟在content_by_lua_file后面的参数</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl74" height="18">ngx.var</td>
+                                                <td>变量，ngx.var.VARIABLE引用某个变量</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl74" height="18">ngx.ctx</td>
+                                                <td>请求的lua上下文</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.header</td>
+                                                <td>响应头，ngx.header.HEADER引用某个头</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.status</td>
+                                                <td>响应码</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl65" height="18">&nbsp;</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl72" height="18">API</td>
+                                                <td class="xl72">说明</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl75" height="18">ngx.log</td>
+                                                <td>输出到error.log</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl76" height="18">print</td>
+                                                <td>等价于 ngx.log(ngx.NOTICE, ...)</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl76" height="18">ngx.send_headers</td>
+                                                <td>发送响应头</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl76" height="18">ngx.headers_sent</td>
+                                                <td>响应头是否已发送</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl76" height="18">ngx.resp.get_headers</td>
+                                                <td>获取响应头</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl77" height="18">ngx.timer.at</td>
+                                                <td>注册定时器事件</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl76" height="18">ngx.is_subrequest</td>
+                                                <td>当前请求是否是子请求</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl75" height="18">ngx.location.capture</td>
+                                                <td>发布一个子请求</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl75" height="18">ngx.location.capture_multi</td>
+                                                <td>发布多个子请求</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl76" height="18">ngx.exec</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl76" height="18">ngx.redirect</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl77" height="18">ngx.print</td>
+                                                <td>输出响应</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl75" height="18">ngx.say</td>
+                                                <td>输出响应，自动添加'\n'</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl76" height="18">ngx.flush</td>
+                                                <td>刷新响应</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl75" height="18">ngx.exit</td>
+                                                <td>结束请求</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl76" height="18">ngx.eof</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl76" height="18">ngx.sleep</td>
+                                                <td>无阻塞的休眠（使用定时器实现）</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl76" height="18">ngx.get_phase</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl76" height="18">ngx.on_abort</td>
+                                                <td>注册client断开请求时的回调函数</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl76" height="18">ndk.set_var.DIRECTIVE</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.req.start_time</td>
+                                                <td>请求的开始时间</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.req.http_version</td>
+                                                <td>请求的HTTP版本号</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.req.raw_header</td>
+                                                <td>请求头（包括请求行）</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.req.get_method</td>
+                                                <td>请求方法</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.req.set_method</td>
+                                                <td>请求方法重载</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.req.set_uri</td>
+                                                <td>请求URL重写</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.req.set_uri_args</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl71" height="18">ngx.req.get_uri_args</td>
+                                                <td>获取请求参数</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl71" height="18">ngx.req.get_post_args</td>
+                                                <td>获取请求表单</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.req.get_headers</td>
+                                                <td>获取请求头</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.req.set_header</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.req.clear_header</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.req.read_body</td>
+                                                <td>读取请求体</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.req.discard_body</td>
+                                                <td>扔掉请求体</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.req.get_body_data</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.req.get_body_file</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.req.set_body_data</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.req.set_body_file</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.req.init_body</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.req.append_body</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.req.finish_body</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.req.socket</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl68" height="18">ngx.escape_uri</td>
+                                                <td>字符串的url编码</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl68" height="18">ngx.unescape_uri</td>
+                                                <td>字符串url解码</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl68" height="18">ngx.encode_args</td>
+                                                <td>将table编码为一个参数字符串</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl68" height="18">ngx.decode_args</td>
+                                                <td>将参数字符串编码为一个table</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl68" height="18">ngx.encode_base64</td>
+                                                <td>字符串的base64编码</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl68" height="18">ngx.decode_base64</td>
+                                                <td>字符串的base64解码</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl68" height="18">ngx.crc32_short</td>
+                                                <td>字符串的crs32_short哈希</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl68" height="18">ngx.crc32_long</td>
+                                                <td>字符串的crs32_long哈希</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl68" height="18">ngx.hmac_sha1</td>
+                                                <td>字符串的hmac_sha1哈希</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl68" height="18">ngx.md5</td>
+                                                <td>返回16进制MD5</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl68" height="18">ngx.md5_bin</td>
+                                                <td>返回2进制MD5</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl68" height="18">ngx.sha1_bin</td>
+                                                <td>返回2进制sha1哈希值</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl68" height="18">ngx.quote_sql_str</td>
+                                                <td>SQL语句转义</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.today</td>
+                                                <td>返回当前日期</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.time</td>
+                                                <td>返回UNIX时间戳</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.now</td>
+                                                <td>返回当前时间</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.update_time</td>
+                                                <td>刷新时间后再返回</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.localtime</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.utctime</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.cookie_time</td>
+                                                <td>返回的时间可用于cookie值</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.http_time</td>
+                                                <td>返回的时间可用于HTTP头</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.parse_http_time</td>
+                                                <td>解析HTTP头的时间</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl68" height="18">ngx.re.match</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl68" height="18">ngx.re.find</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl68" height="18">ngx.re.gmatch</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl68" height="18">ngx.re.sub</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl68" height="18">ngx.re.gsub</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.shared.DICT</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.shared.DICT.get</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.shared.DICT.get_stale</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.shared.DICT.set</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.shared.DICT.safe_set</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.shared.DICT.add</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.shared.DICT.safe_add</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.shared.DICT.replace</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.shared.DICT.delete</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.shared.DICT.incr</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.shared.DICT.flush_all</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.shared.DICT.flush_expired</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.shared.DICT.get_keys</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl70" height="18">ngx.socket.udp</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl70" height="18">udpsock:setpeername</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl70" height="18">udpsock:send</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl70" height="18">udpsock:receive</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl70" height="18">udpsock:close</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl70" height="18">udpsock:settimeout</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl69" height="18">ngx.socket.tcp</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl69" height="18">tcpsock:connect</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl69" height="18">tcpsock:sslhandshake</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl69" height="18">tcpsock:send</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl69" height="18">tcpsock:receive</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl69" height="18">tcpsock:receiveuntil</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl69" height="18">tcpsock:close</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl69" height="18">tcpsock:settimeout</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl69" height="18">tcpsock:setoption</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl69" height="18">tcpsock:setkeepalive</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl69" height="18">tcpsock:getreusedtimes</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl69" height="18">ngx.socket.connect</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.thread.spawn</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.thread.wait</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">ngx.thread.kill</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">coroutine.create</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">coroutine.resume</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">coroutine.yield</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">coroutine.wrap</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">coroutine.running</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl67" height="18">coroutine.status</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl68" height="18">ngx.config.debug</td>
+                                                <td>编译时是否有 --with-debug选项</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl68" height="18">ngx.config.prefix</td>
+                                                <td>编译时的 --prefix选项</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl68" height="18">ngx.config.nginx_version</td>
+                                                <td>返回nginx版本号</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl68" height="18">ngx.config.nginx_configure</td>
+                                                <td>返回编译时 ./configure的命令行选项</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl68" height="18">ngx.config.ngx_lua_version</td>
+                                                <td>返回ngx_lua模块版本号</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl68" height="18">ngx.worker.exiting</td>
+                                                <td>当前worker进程是否正在关闭（如reload、shutdown期间）</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl68" height="18">ngx.worker.pid</td>
+                                                <td>返回当前worker进程的pid</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td height="18">&nbsp;</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td height="18">&nbsp;</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td height="18">&nbsp;</td>
+                                                <td>&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="xl73" height="18">常量</td>
+                                                <td class="xl72">说明</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td height="108">Core constants</td>
+                                                <td class="xl66" width="389">ngx.OK (0)<br/>ngx.ERROR (-1)<br/>ngx.AGAIN
+                                                    (-2)<br/>ngx.DONE (-4)<br/>ngx.DECLINED (-5)<br/>ngx.nil
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td height="270">HTTP method constants</td>
+                                                <td class="xl66" width="389">ngx.HTTP_GET<br/>ngx.HTTP_HEAD<br/>ngx.HTTP_PUT<br/>ngx.HTTP_POST<br/>ngx.HTTP_DELETE<br/>ngx.HTTP_OPTIONS&nbsp;&nbsp;<br/>ngx.HTTP_MKCOL&nbsp;&nbsp;&nbsp;&nbsp;<br/>ngx.HTTP_COPY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>ngx.HTTP_MOVE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>ngx.HTTP_PROPFIND&nbsp;<br/>ngx.HTTP_PROPPATCH&nbsp;<br/>ngx.HTTP_LOCK&nbsp;<br/>ngx.HTTP_UNLOCK&nbsp;&nbsp;&nbsp;&nbsp;<br/>ngx.HTTP_PATCH&nbsp;&nbsp;&nbsp;<br/>ngx.HTTP_TRACE&nbsp;&nbsp;
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td height="306">HTTP status constants</td>
+                                                <td class="xl66" width="389">ngx.HTTP_OK (200)<br/>ngx.HTTP_CREATED
+                                                    (201)<br/>ngx.HTTP_SPECIAL_RESPONSE (300)<br/>ngx.HTTP_MOVED_PERMANENTLY
+                                                    (301)<br/>ngx.HTTP_MOVED_TEMPORARILY (302)<br/>ngx.HTTP_SEE_OTHER
+                                                    (303)<br/>ngx.HTTP_NOT_MODIFIED (304)<br/>ngx.HTTP_BAD_REQUEST (400)<br/>ngx.HTTP_UNAUTHORIZED
+                                                    (401)<br/>ngx.HTTP_FORBIDDEN (403)<br/>ngx.HTTP_NOT_FOUND (404)<br/>ngx.HTTP_NOT_ALLOWED
+                                                    (405)<br/>ngx.HTTP_GONE (410)<br/>ngx.HTTP_INTERNAL_SERVER_ERROR
+                                                    (500)<br/>ngx.HTTP_METHOD_NOT_IMPLEMENTED (501)<br/>ngx.HTTP_SERVICE_UNAVAILABLE
+                                                    (503)<br/>ngx.HTTP_GATEWAY_TIMEOUT (504)&nbsp;</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td height="162">Nginx log level constants</td>
+                                                <td class="xl66" width="389">ngx.STDERR<br/>ngx.EMERG<br/>ngx.ALERT<br/>ngx.CRIT<br/>ngx.ERR<br/>ngx.WARN<br/>ngx.NOTICE<br/>ngx.INFO<br/>ngx.DEBUG<br/><br/>
+                                                </td>
+
+                                            </tr>
+
+                                            </tbody>
+
+                                        </table>
+
+                                    </div>
+                                </div>
+                                <div id="MySignature"></div>
+                                <div class="clear"></div>
+                                <div id="blog_post_info_block">
+                                    <div id="BlogPostCategory"></div>
+                                    <div id="EntryTag"></div>
+                                    <div id="blog_post_info">
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div id="post_next_prev"></div>
+                                </div>
+
+
+                            </div>
+                            <div class="postDesc">posted @ <span id="post-date">2015-03-02 16:07</span> <a
+                                    href='http://www.cnblogs.com/wangxusummer/'>wangxusummer</a> 阅读(<span
+                                    id="post_view_count">...</span>) 评论(<span id="post_comment_count">...</span>) <a
+                                    href="http://i.cnblogs.com/EditPosts.aspx?postid=4309007" rel="nofollow">编辑</a> <a
+                                    href="#" onclick="AddToWz(4309007);return false;">收藏</a></div>
+                        </div>
+                        <script type="text/javascript">var allowComments = true, isLogined = false, cb_blogId = 191143, cb_entryId = 4309007, cb_blogApp = currentBlogApp, cb_blogUserGuid = '253c11b3-1d25-e011-ac81-842b2b196315', cb_entryCreatedDate = '2015/3/2 16:07:00';
+                        loadViewCount(cb_entryId);</script>
+
+                    </div><!--end: topics 文章、评论容器-->
+                </div>
+                <a name="!comments"></a>
+                <div id="blog-comments-placeholder"></div>
+                <script type="text/javascript">var commentManager = new blogCommentManager();
+                commentManager.renderComments(0);</script>
+                <div id='comment_form' class='commentform'>
+                    <a name='commentform'></a>
+                    <div id='divCommentShow'></div>
+                    <div id='comment_nav'><span id='span_refresh_tips'></span><a href='javascript:void(0);'
+                                                                                 onclick='return RefreshCommentList();'
+                                                                                 id='lnk_RefreshComments' runat='server'
+                                                                                 clientidmode='Static'>刷新评论</a><a
+                            href='#' onclick='return RefreshPage();'>刷新页面</a><a href='#top'>返回顶部</a></div>
+                    <div id='comment_form_container'></div>
+                    <div class='ad_text_commentbox' id='ad_text_under_commentbox'></div>
+                    <div id='ad_t2'></div>
+                    <div id='opt_under_post'></div>
+                    <div id='ad_c1' class='c_ad_block'></div>
+                    <div id='under_post_news'></div>
+                    <div id='ad_c2' class='c_ad_block'></div>
+                    <div id='under_post_kb'></div>
+                    <div id='HistoryToday' class='c_ad_block'></div>
+                    <script type='text/javascript'>
+                        $(function () {
+                            setTimeout(function () {
+                                incrementViewCount(cb_entryId);
+                            }, 50);
+                            deliverAdT2();
+                            deliverAdC1();
+                            deliverAdC2();
+                            loadNewsAndKb();
+                            loadBlogSignature();
+                            LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+                            GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+                            loadOptUnderPost();
+                            GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+                        });
+                    </script>
+                </div>
+
+
+            </div><!--end: forFlow -->
+        </div><!--end: mainContent 主体内容容器-->
+
+        <div id="sideBar">
+            <div id="sideBarMain">
+
+                <!--done-->
+                <div class="newsItem">
+                    <h3 class="catListTitle">公告</h3>
+                    <div id="blog-news"></div>
+                    <script type="text/javascript">loadBlogNews();</script>
+                </div>
+
+                <div id="blog-calendar" style="display:none"></div>
+                <script type="text/javascript">loadBlogDefaultCalendar();</script>
+
+                <div id="leftcontentcontainer">
+                    <div id="blog-sidecolumn"></div>
+                    <script type="text/javascript">loadBlogSideColumn();</script>
+                </div>
+
+            </div><!--end: sideBarMain -->
+        </div><!--end: sideBar 侧边栏容器 -->
+        <div class="clear"></div>
+    </div><!--end: main -->
+    <div class="clear"></div>
+    <div id="footer">
+
+        <!--done-->
+        Copyright &copy;2016 wangxusummer
+    </div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+</body>
+</html>
