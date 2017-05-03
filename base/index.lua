@@ -10,6 +10,7 @@ ngx.say('ffff');
 ngx.say(ngx.var.remote_addr);
 ngx.say(ngx.var.server_protocol);
 ngx.say(ngx.var.uri);
+ngx.say(ngx.var.request_uri)
 ngx.say("<br/>");
 --请求头
 local headers = ngx.req.get_headers()
